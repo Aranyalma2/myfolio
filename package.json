@@ -1,0 +1,38 @@
+{
+	"name": "me",
+	"version": "1.0.0",
+	"description": "Németh Bálint's personal portfolio website",
+	"type": "module",
+	"author": "Németh Bálint",
+	"license": "",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"preview": "vite preview",
+		"lint": "eslint . --ext .vue,.ts,.js",
+		"lint:fix": "eslint . --ext .vue,.ts,.js --fix",
+		"format": "prettier --write \"src/**/*.{vue,ts,js,json,css}\"",
+		"format:check": "prettier --check \"src/**/*.{vue,ts,js,json,css}\""
+	},
+	"dependencies": {
+		"vue": "^3.4.0",
+		"vue-router": "^4.2.5"
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.39.2",
+		"@typescript-eslint/eslint-plugin": "^8.54.0",
+		"@typescript-eslint/parser": "^8.54.0",
+		"@vitejs/plugin-vue": "^5.0.4",
+		"@vue/eslint-config-typescript": "^14.6.0",
+		"@vue/tsconfig": "^0.5.1",
+		"eslint": "^9.39.2",
+		"eslint-config-prettier": "^10.1.8",
+		"eslint-plugin-vue": "^10.7.0",
+		"prettier": "^3.8.1",
+		"typescript": "^5.4.2",
+		"typescript-eslint": "^8.54.0",
+		"vite": "^5.1.6",
+		"vue-eslint-parser": "^10.2.0",
+		"vue-tsc": "^2.0.6"
+	}
+}

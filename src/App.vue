@@ -3,7 +3,7 @@
 		<nav class="navbar">
 			<div class="nav-container">
 				<router-link to="/" class="logo">
-					<span class="logo-text">NB</span>
+					<span class="logo-text">{{ basics.name }}</span>
 				</router-link>
 				<div class="nav-links">
 					<router-link to="/" class="nav-link"> Home </router-link>
@@ -22,11 +22,11 @@
 
 		<footer class="footer">
 			<div class="footer-content">
-				<p>&copy; {{ currentYear }} Németh Bálint. All rights reserved.</p>
+				<p>&copy; {{ currentYear }} {{ basics.name }}. All rights reserved.</p>
 				<div class="footer-links">
-					<a href="https://github.com/Aranyalma2" target="_blank" rel="noopener noreferrer">GitHub</a>
-					<a href="https://linkedin.com/in/nemethbalint-dev" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-					<a href="mailto:nemethb.02@gmail.com">Contact</a>
+					<a :href="socialLinks.github" target="_blank" rel="noopener noreferrer">GitHub</a>
+					<a :href="socialLinks.linkedIn" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+					<a :href="`mailto:${basics.email}`">Contact</a>
 				</div>
 			</div>
 		</footer>
@@ -35,6 +35,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
+import { basics, socialLinks } from '@/data/basics';
 
 const currentYear = computed(() => new Date().getFullYear());
 </script>

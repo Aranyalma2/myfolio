@@ -1,9 +1,12 @@
 # MyFolio
 
-A modern, customizable portfolio website built with Vue 3, TypeScript, and Vite. This application provides a clean and professional way to showcase your skills, experience, education, projects, and certifications.
+A modern, customizable portfolio website built with Vue 3, TypeScript, and Vite. This application provides a clean way to showcase your skills, experience, education, projects, and certifications.
+
+<img src="/git-assets/pic1.jpg" />
 
 ## Features
 
+- Easy and simple customization
 - Responsive design that works on all devices
 - Project showcase with image galleries
 - Filterable projects by technology labels

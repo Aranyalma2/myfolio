@@ -21,8 +21,8 @@
 /*global document, localStorage, window*/
 import { ref, computed, onMounted } from 'vue';
 
-// Theme can be 'light', 'dark', or 'system'
-const theme = ref<'light' | 'dark' | 'system'>('system');
+// Theme can be 'light' or 'dark'
+const theme = ref<'light' | 'dark'>('light');
 
 const themeLabel = computed(() => {
 	return theme.value === 'light' ? 'Switch to dark mode' : 'Switch to light mode';
@@ -32,50 +32,41 @@ function getSystemTheme(): 'light' | 'dark' {
 	return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
 
-function applyTheme(newTheme: 'light' | 'dark' | 'system') {
+function applyTheme(newTheme: 'light' | 'dark') {
 	const root = document.documentElement;
 
 	// Remove existing theme classes
 	root.classList.remove('light', 'dark');
 
 	// Apply theme class
-	if (newTheme === 'system') {
-		// Let CSS media query handle it, no class needed
-		localStorage.removeItem('theme');
-	} else {
-		root.classList.add(newTheme);
-		localStorage.setItem('theme', newTheme);
-	}
+	root.classList.add(newTheme);
+	localStorage.setItem('theme', newTheme);
 
 	theme.value = newTheme;
 }
 
 function toggleTheme() {
-	// Cycle through: system -> light -> dark -> system
-	if (theme.value === 'system') {
-		const systemTheme = getSystemTheme();
-		applyTheme(systemTheme === 'dark' ? 'light' : 'dark');
-	} else if (theme.value === 'light') {
-		applyTheme('dark');
-	} else {
-		applyTheme('system');
-	}
+	// Toggle between light and dark
+	applyTheme(theme.value === 'light' ? 'dark' : 'light');
 }
 
 onMounted(() => {
-	// Load saved theme or default to system
+	// Load saved theme or default to system preference
 	const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
 
 	if (savedTheme) {
 		applyTheme(savedTheme);
 	} else {
-		theme.value = 'system';
+		// No saved preference, use system theme
+		applyTheme(getSystemTheme());
 	}
 
-	// Listen for system theme changes
+	// Listen for system theme changes (only if user hasn't manually set a preference)
 	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', _e => {
-		if (theme.value === 'system') {
-			// No class applied, CSS media query handles it automatically
+		const savedTheme = localStorage.getItem('theme');
+		if (!savedTheme) {
+			// User hasn't set a preference, follow system
+			applyTheme(getSystemTheme());
 		}
 	});
 });

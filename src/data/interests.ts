@@ -1,8 +1,4 @@
-export interface Interest {
-	id: string;
-	name: string;
-	keywords: string[];
-}
+import { Interest } from '@/types';
 
 export const interests: Interest[] = [
 	{

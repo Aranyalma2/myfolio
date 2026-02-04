@@ -63,6 +63,12 @@ export interface Certification {
 	hidden: boolean;
 }
 
+export interface Interest {
+	id: string;
+	name: string;
+	keywords: string[];
+}
+
 export interface Language {
 	id: string;
 	language: string;

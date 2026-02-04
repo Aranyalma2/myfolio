@@ -1,0 +1,94 @@
+.projects-page {
+	width: 100%;
+}
+
+.projects-header {
+	background: #2c3e50;
+	color: white;
+	padding: 2rem 1rem;
+	text-align: center;
+}
+
+.projects-header h1 {
+	font-size: 2.5rem;
+	margin-bottom: 0.75rem;
+}
+
+.projects-header p {
+	font-size: 1.15rem;
+	opacity: 0.9;
+}
+
+.projects-content {
+	padding: 2rem 1rem;
+	background: #f8f9fa;
+	min-height: 60vh;
+}
+
+.results-info {
+	margin: 1.5rem 0 1rem;
+	text-align: center;
+	color: #718096;
+	font-size: 0.95rem;
+}
+
+.projects-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	gap: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+.no-results {
+	text-align: center;
+	padding: 3rem 1rem;
+	background: white;
+	border-radius: 8px;
+	margin-top: 1.5rem;
+}
+
+.no-results h3 {
+	font-size: 1.5rem;
+	margin-bottom: 0.75rem;
+	color: #2d3748;
+}
+
+.no-results p {
+	font-size: 1.05rem;
+	color: #718096;
+	margin-bottom: 1.5rem;
+}
+
+.btn-clear {
+	background: #2c3e50;
+	color: white;
+	border: none;
+	padding: 0.8rem 1.5rem;
+	border-radius: 4px;
+	font-size: 0.95rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition: background 0.3s ease;
+}
+
+.btn-clear:hover {
+	background: #1a252f;
+}
+
+@media (max-width: 768px) {
+	.projects-header h1 {
+		font-size: 2rem;
+	}
+
+	.projects-header p {
+		font-size: 1rem;
+	}
+
+	.projects-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.projects-content {
+		padding: 1.5rem 1rem;
+	}
+}

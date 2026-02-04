@@ -81,141 +81,16 @@ const clearFilters = (): void => {
 	emit('update:selectedLabels', []);
 };
 </script>
+.project-filter { background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #e2e8f0; } .search-box { margin-bottom: 1.5rem; } .search-input-wrapper { position:
+relative; display: flex; align-items: center; } .search-input { width: 100%; padding: 0.8rem 2.5rem 0.8rem 0.8rem; border: 2px solid #e2e8f0; border-radius: 4px; font-size:
+0.95rem; transition: border-color 0.3s ease; } .search-input:focus { outline: none; border-color: #2c3e50; } .clear-search-btn { position: absolute; right: 0.75rem; background:
+#e2e8f0; border: none; width: 22px; height: 22px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.3s
+ease; font-size: 0.85rem; color: #4a5568; } .clear-search-btn:hover { background: #cbd5e0; } .filter-section { margin-top: 1rem; } .filter-header { display: flex; justify-content:
+space-between; align-items: center; margin-bottom: 0.75rem; } .filter-header h3 { font-size: 1.1rem; color: #2d3748; font-weight: 600; } .clear-all-btn { background: transparent;
+border: 2px solid #e74c3c; color: #e74c3c; padding: 0.4rem 0.8rem; border-radius: 4px; cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: all 0.3s ease; }
+.clear-all-btn:hover { background: #e74c3c; color: white; } .label-filters { display: flex; flex-wrap: wrap; gap: 0.6rem; } .label-btn { padding: 0.6rem 1rem; border: 2px solid
+#e2e8f0; background: white; border-radius: 4px; cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem; font-weight: 500; color: #4a5568; } .label-btn:hover { border-color:
+#2c3e50; color: #2c3e50; } .label-btn.active { background: #2c3e50; border-color: #2c3e50; color: white; } @media (max-width: 768px) { .project-filter { padding: 1rem; }
+.filter-header { flex-direction: column; align-items: flex-start; gap: 0.75rem; } .label-filters { gap: 0.4rem; } .label-btn { font-size: 0.85rem; padding: 0.5rem 0.9rem; } }
 
-<style scoped>
-.project-filter {
-	background: white;
-	padding: 1.5rem;
-	border-radius: 8px;
-	border: 1px solid #e2e8f0;
-}
-
-.search-box {
-	margin-bottom: 1.5rem;
-}
-
-.search-input-wrapper {
-	position: relative;
-	display: flex;
-	align-items: center;
-}
-
-.search-input {
-	width: 100%;
-	padding: 0.8rem 2.5rem 0.8rem 0.8rem;
-	border: 2px solid #e2e8f0;
-	border-radius: 4px;
-	font-size: 0.95rem;
-	transition: border-color 0.3s ease;
-}
-
-.search-input:focus {
-	outline: none;
-	border-color: #2c3e50;
-}
-
-.clear-search-btn {
-	position: absolute;
-	right: 0.75rem;
-	background: #e2e8f0;
-	border: none;
-	width: 22px;
-	height: 22px;
-	border-radius: 50%;
-	cursor: pointer;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	transition: background 0.3s ease;
-	font-size: 0.85rem;
-	color: #4a5568;
-}
-
-.clear-search-btn:hover {
-	background: #cbd5e0;
-}
-
-.filter-section {
-	margin-top: 1rem;
-}
-
-.filter-header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin-bottom: 0.75rem;
-}
-
-.filter-header h3 {
-	font-size: 1.1rem;
-	color: #2d3748;
-	font-weight: 600;
-}
-
-.clear-all-btn {
-	background: transparent;
-	border: 2px solid #e74c3c;
-	color: #e74c3c;
-	padding: 0.4rem 0.8rem;
-	border-radius: 4px;
-	cursor: pointer;
-	font-weight: 600;
-	font-size: 0.85rem;
-	transition: all 0.3s ease;
-}
-
-.clear-all-btn:hover {
-	background: #e74c3c;
-	color: white;
-}
-
-.label-filters {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 0.6rem;
-}
-
-.label-btn {
-	padding: 0.6rem 1rem;
-	border: 2px solid #e2e8f0;
-	background: white;
-	border-radius: 4px;
-	cursor: pointer;
-	transition: all 0.3s ease;
-	font-size: 0.9rem;
-	font-weight: 500;
-	color: #4a5568;
-}
-
-.label-btn:hover {
-	border-color: #2c3e50;
-	color: #2c3e50;
-}
-
-.label-btn.active {
-	background: #2c3e50;
-	border-color: #2c3e50;
-	color: white;
-}
-
-@media (max-width: 768px) {
-	.project-filter {
-		padding: 1rem;
-	}
-
-	.filter-header {
-		flex-direction: column;
-		align-items: flex-start;
-		gap: 0.75rem;
-	}
-
-	.label-filters {
-		gap: 0.4rem;
-	}
-
-	.label-btn {
-		font-size: 0.85rem;
-		padding: 0.5rem 0.9rem;
-	}
-}
-</style>
+<style src="./ProjectFilter.css" scoped></style>

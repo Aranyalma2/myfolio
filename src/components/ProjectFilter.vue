@@ -9,7 +9,7 @@
 
 		<div class="filter-section">
 			<div class="filter-header">
-				<h3>Filter by Technology</h3>
+				<h3>Filter by Tech & Features</h3>
 				<button v-if="selectedLabelsLocal.length > 0" class="clear-all-btn" @click="clearFilters">Clear All ({{ selectedLabelsLocal.length }})</button>
 			</div>
 

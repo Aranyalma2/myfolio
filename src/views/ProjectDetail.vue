@@ -5,11 +5,6 @@
 				<router-link to="/projects" class="back-link"> ← Back to Projects </router-link>
 				<div class="hero-content">
 					<h1>{{ project.title }}</h1>
-					<div class="labels">
-						<span v-for="label in project.labels" :key="label" class="label">
-							{{ label }}
-						</span>
-					</div>
 				</div>
 			</div>
 		</section>
@@ -21,7 +16,7 @@
 
 					<div class="project-sidebar">
 						<div class="sidebar-section">
-							<h3>Technologies</h3>
+							<h3>Tech & Features</h3>
 							<div class="tech-list">
 								<span v-for="label in project.labels" :key="label" class="tech-tag">
 									{{ label }}

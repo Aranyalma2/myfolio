@@ -23,6 +23,8 @@ export default tseslint.config(
 			'vue/multi-word-component-names': 'off',
 			'vue/no-v-html': 'off',
 			'vue/html-indent': ['error', 'tab'],
+			'vue/max-attributes-per-line': ['error', { singleline: 10, multiline: 2 }],
+			'vue/singleline-html-element-content-newline': 'off',
 			'vue/html-self-closing': [
 				'error',
 				{

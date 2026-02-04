@@ -25,6 +25,9 @@
 			<div class="footer-content">
 				<p>&copy; {{ currentYear }} {{ basics.name }}. All rights reserved.</p>
 				<div class="footer-links">
+					<a href="https://github.com/Aranyalma2/myfolio" target="_blank" rel="noopener noreferrer">Made with <b>MyFolio</b></a>
+				</div>
+				<div class="footer-links">
 					<a :href="socialLinks.github" target="_blank" rel="noopener noreferrer">GitHub</a>
 					<a :href="socialLinks.linkedIn" target="_blank" rel="noopener noreferrer">LinkedIn</a>
 					<a :href="`mailto:${basics.email}`">Contact</a>

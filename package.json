@@ -1,10 +1,10 @@
 {
-	"name": "me",
+	"name": "myfolio",
 	"version": "1.0.0",
-	"description": "Németh Bálint's personal portfolio website",
+	"description": "Personal generic portfolio website framework built with Vue 3 and Vite",
 	"type": "module",
 	"author": "Németh Bálint",
-	"license": "",
+	"license": "MIT",
 	"scripts": {
 		"dev": "vite",
 		"build": "vite build",

@@ -3,11 +3,12 @@ export interface Project {
 	title: string;
 	shortDescription: string;
 	description: string;
-	image: string;
+	bannerImage: string;
+	images: string[];
 	labels: string[];
 	github: string | null;
 	demo: string | null;
-	featured: boolean;
+	tags: string[];
 }
 
 export interface Basics {

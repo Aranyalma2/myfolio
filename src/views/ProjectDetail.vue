@@ -16,10 +16,6 @@
 
 		<section class="project-content">
 			<div class="container">
-				<div class="project-image-large">
-					<img :src="project.image" :alt="project.title" />
-				</div>
-
 				<div class="content-wrapper">
 					<div class="project-description" v-html="project.description"></div>
 
@@ -43,6 +39,16 @@
 					</div>
 				</div>
 
+				<div v-if="project.images && project.images.length > 0" class="gallery-section">
+					<h2>Project Gallery</h2>
+					<div class="gallery-grid">
+						<div v-for="(image, index) in project.images" :key="index" class="gallery-item" @click="openGallery(index)">
+							<img :src="image" :alt="`${project.title} - Image ${index + 1}`" />
+							<div class="gallery-overlay"></div>
+						</div>
+					</div>
+				</div>
+
 				<div class="navigation-footer">
 					<router-link v-if="previousProject" :to="`/projects/${previousProject.id}`" class="nav-project nav-prev">
 						<span class="nav-label">← Previous Project</span>
@@ -55,6 +61,22 @@
 				</div>
 			</div>
 		</section>
+
+		<!-- Gallery Modal -->
+		<Teleport to="body">
+			<div v-if="isGalleryOpen" class="gallery-modal" @click.self="closeGallery">
+				<button class="modal-close" aria-label="Close gallery" @click="closeGallery">✕</button>
+
+				<button v-if="currentImageIndex > 0" class="modal-nav modal-prev" aria-label="Previous image" @click="previousImage">‹</button>
+
+				<div class="modal-content">
+					<img v-if="project" :src="project.images[currentImageIndex]" :alt="`${project.title} - Image ${currentImageIndex + 1}`" class="modal-image" />
+					<div class="modal-counter">{{ currentImageIndex + 1 }} / {{ project?.images.length }}</div>
+				</div>
+
+				<button v-if="project && currentImageIndex < project.images.length - 1" class="modal-nav modal-next" aria-label="Next image" @click="nextImage">›</button>
+			</div>
+		</Teleport>
 	</div>
 
 	<div v-else class="not-found">
@@ -67,7 +89,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { projects } from '@/data/projects';
 import type { Project } from '@/types';
@@ -91,6 +113,52 @@ const nextProject = computed<Project | undefined>(() => {
 	}
 	return undefined;
 });
+
+/*global document, KeyboardEvent, window*/
+
+// Gallery modal state
+const isGalleryOpen = ref(false);
+const currentImageIndex = ref(0);
+
+const openGallery = (index: number) => {
+	currentImageIndex.value = index;
+	isGalleryOpen.value = true;
+	document.body.style.overflow = 'hidden';
+};
+
+const closeGallery = () => {
+	isGalleryOpen.value = false;
+	document.body.style.overflow = '';
+};
+
+const nextImage = () => {
+	if (project.value && currentImageIndex.value < project.value.images.length - 1) {
+		currentImageIndex.value++;
+	}
+};
+
+const previousImage = () => {
+	if (currentImageIndex.value > 0) {
+		currentImageIndex.value--;
+	}
+};
+
+const handleKeydown = (event: KeyboardEvent) => {
+	if (!isGalleryOpen.value) return;
+
+	if (event.key === 'Escape') {
+		closeGallery();
+	} else if (event.key === 'ArrowRight') {
+		nextImage();
+	} else if (event.key === 'ArrowLeft') {
+		previousImage();
+	}
+};
+
+// Add keyboard event listener
+if (typeof window !== 'undefined') {
+	window.addEventListener('keydown', handleKeydown);
+}
 </script>
 
 <style scoped>
@@ -171,26 +239,11 @@ const nextProject = computed<Project | undefined>(() => {
 	background: #f7fafc;
 }
 
-.project-image-large {
-	width: 100%;
-	max-height: 500px;
-	overflow: hidden;
-	border-radius: 12px;
-	margin-bottom: 3rem;
-	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-}
-
-.project-image-large img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-}
-
 .content-wrapper {
 	display: grid;
 	grid-template-columns: 1fr 320px;
 	gap: 3rem;
-	margin-bottom: 4rem;
+	margin-bottom: 3rem;
 }
 
 .project-description {
@@ -305,6 +358,168 @@ const nextProject = computed<Project | undefined>(() => {
 	font-size: 1.2rem;
 }
 
+/* Gallery Section */
+.gallery-section {
+	margin: 4rem 0;
+}
+
+.gallery-section h2 {
+	font-size: 2rem;
+	color: #2d3748;
+	margin-bottom: 2rem;
+	font-weight: 700;
+}
+
+.gallery-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	gap: 1.5rem;
+}
+
+.gallery-item {
+	position: relative;
+	aspect-ratio: 16 / 10;
+	border-radius: 12px;
+	overflow: hidden;
+	cursor: pointer;
+	background: white;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease;
+}
+
+.gallery-item:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-item img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+	transform: scale(1.05);
+}
+
+.gallery-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.5);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+	opacity: 1;
+}
+
+/* Gallery Modal */
+.gallery-modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.95);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 9999;
+	padding: 2rem;
+}
+
+.modal-content {
+	position: relative;
+	max-width: 90vw;
+	max-height: 90vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.modal-image {
+	max-width: 100%;
+	max-height: 85vh;
+	object-fit: contain;
+	border-radius: 8px;
+	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.modal-close {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	background: rgba(255, 255, 255, 0.1);
+	border: 2px solid rgba(255, 255, 255, 0.3);
+	color: white;
+	font-size: 2rem;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	transition: all 0.3s ease;
+	z-index: 10000;
+	backdrop-filter: blur(10px);
+}
+
+.modal-close:hover {
+	background: rgba(255, 255, 255, 0.2);
+	transform: rotate(90deg);
+}
+
+.modal-nav {
+	position: absolute;
+	top: 48%;
+	transform: translateY(-50%);
+	background: rgba(255, 255, 255, 0.1);
+	border: 2px solid rgba(255, 255, 255, 0.3);
+	color: white;
+	font-size: 3rem;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-bottom: 0.2rem;
+	transition: all 0.3s ease;
+	backdrop-filter: blur(10px);
+}
+
+.modal-nav:hover {
+	background: rgba(255, 255, 255, 0.2);
+	transform: translateY(-50%) scale(1.1);
+}
+
+.modal-prev {
+	left: 2rem;
+}
+
+.modal-next {
+	right: 2rem;
+}
+
+.modal-counter {
+	color: white;
+	font-size: 1.1rem;
+	margin-top: 1.5rem;
+	background: rgba(0, 0, 0, 0.5);
+	padding: 0.5rem 1rem;
+	border-radius: 20px;
+	backdrop-filter: blur(10px);
+}
+
 .navigation-footer {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -409,6 +624,25 @@ const nextProject = computed<Project | undefined>(() => {
 	.nav-next {
 		grid-column: 1;
 	}
+
+	.gallery-grid {
+		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+		gap: 1rem;
+	}
+
+	.modal-nav {
+		width: 50px;
+		height: 50px;
+		font-size: 2.5rem;
+	}
+
+	.modal-prev {
+		left: 1rem;
+	}
+
+	.modal-next {
+		right: 1rem;
+	}
 }
 
 @media (max-width: 768px) {
@@ -423,6 +657,34 @@ const nextProject = computed<Project | undefined>(() => {
 
 	.project-content {
 		padding: 2rem 1rem;
+	}
+
+	.gallery-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.gallery-modal {
+		padding: 1rem;
+	}
+
+	.modal-nav {
+		width: 40px;
+		height: 40px;
+		font-size: 2rem;
+	}
+
+	.modal-prev {
+		left: 0.5rem;
+	}
+
+	.modal-next {
+		right: 0.5rem;
+	}
+
+	.modal-close {
+		width: 40px;
+		height: 40px;
+		font-size: 1.5rem;
 	}
 }
 </style>

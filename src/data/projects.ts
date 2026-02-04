@@ -18,11 +18,19 @@ export const projects: Project[] = [
         <li>Multi-tenant architecture supporting 50+ clients</li>
       </ul>
     `,
-		image: '/src/assets/projects/picture.webp',
+		bannerImage: '/src/assets/projects/picture.webp',
+		images: [
+			'/src/assets/projects/picture.webp',
+			'/src/assets/projects/picture.webp',
+			'/src/assets/projects/picture.webp',
+			'/src/assets/projects/picture.webp',
+			'/src/assets/projects/picture.webp',
+			'/src/assets/projects/picture.webp'
+		],
 		labels: ['NestJS', 'Vue.js', 'MongoDB', 'Azure AKS', 'IoT', 'TypeScript', 'WebSocket'],
 		github: 'https://github.com/',
 		demo: null,
-		featured: true
+		tags: ['Active']
 	},
 	{
 		id: 'esp32-controller',
@@ -42,11 +50,12 @@ export const projects: Project[] = [
         <li>Temperature range: -40°C to +85°C</li>
       </ul>
     `,
-		image: '/src/assets/projects/picture.webp',
+		bannerImage: '/src/assets/projects/picture.webp',
+		images: ['/src/assets/projects/picture.webp', '/src/assets/projects/picture.webp'],
 		labels: ['ESP32', 'C++', 'ESP-IDF', 'KiCad', 'Embedded', 'IoT', 'Modbus'],
 		github: 'https://github.com/',
 		demo: null,
-		featured: true
+		tags: ['Active', 'Passion Project']
 	},
 	{
 		id: 'vpn-management-system',
@@ -66,11 +75,12 @@ export const projects: Project[] = [
         <li>Multi-site VPN mesh networking</li>
       </ul>
     `,
-		image: '/src/assets/projects/picture.webp',
+		bannerImage: '/src/assets/projects/picture.webp',
+		images: ['/src/assets/projects/picture.webp'],
 		labels: ['Next.js', 'NestJS', 'MikroTik', 'Networking', 'PostgreSQL', 'TypeScript', 'API'],
 		github: null,
 		demo: null,
-		featured: true
+		tags: ['Maintained']
 	},
 	{
 		id: 'iot-sensor-mesh',
@@ -91,11 +101,12 @@ export const projects: Project[] = [
         <li>Edge computing for data preprocessing</li>
       </ul>
     `,
-		image: '/src/assets/projects/picture.webp',
+		bannerImage: '/src/assets/projects/picture.webp',
+		images: ['/src/assets/projects/picture.webp', '/src/assets/projects/picture.webp'],
 		labels: ['ESP32', 'LoRa', 'C++', 'MQTT', 'IoT', 'Wireless', 'ESP-NOW'],
 		github: 'https://github.com/',
 		demo: null,
-		featured: false
+		tags: ['Hobby', 'Open-Source']
 	},
 	{
 		id: 'kubernetes-microservices',
@@ -114,11 +125,12 @@ export const projects: Project[] = [
         <li>Helm charts for package management</li>
       </ul>
     `,
-		image: '/src/assets/projects/picture.webp',
+		bannerImage: '/src/assets/projects/picture.webp',
+		images: ['/src/assets/projects/picture.webp'],
 		labels: ['Kubernetes', 'Docker', 'Azure AKS', 'Microservices', 'DevOps', 'Istio'],
 		github: null,
 		demo: null,
-		featured: false
+		tags: ['Default']
 	},
 	{
 		id: 'risc-v-firmware',
@@ -137,16 +149,17 @@ export const projects: Project[] = [
         <li>Real-time task scheduling</li>
       </ul>
     `,
-		image: '/src/assets/projects/picture.webp',
+		bannerImage: '/src/assets/projects/picture.webp',
+		images: ['/src/assets/projects/picture.webp', '/src/assets/projects/picture.webp'],
 		labels: ['RISC-V', 'C', 'Embedded', 'CH32V', 'Bare-metal', 'Firmware'],
 		github: 'https://github.com/',
 		demo: null,
-		featured: false
+		tags: ['Legacy']
 	}
 ];
 
 export const getFeaturedProjects = (): Project[] => {
-	return projects.filter(project => project.featured);
+	return projects.filter(project => project.tags.includes('Active') || project.tags.includes('Production'));
 };
 
 export const getProjectById = (id: string): Project | undefined => {

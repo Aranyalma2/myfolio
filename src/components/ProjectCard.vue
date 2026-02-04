@@ -1,8 +1,12 @@
 <template>
 	<router-link :to="`/projects/${project.id}`" class="project-card">
 		<div class="project-image">
-			<img :src="project.image" :alt="project.title" loading="lazy" />
-			<div v-if="project.featured" class="featured-badge">Featured</div>
+			<img :src="project.bannerImage" :alt="project.title" loading="lazy" />
+			<div v-if="project.tags && project.tags.length > 0" class="tags-container">
+				<span v-for="tag in project.tags" :key="tag" :class="['tag', `tag-${getTagClass(tag)}`]">
+					{{ tag }}
+				</span>
+			</div>
 		</div>
 		<div class="project-content">
 			<h3>{{ project.title }}</h3>
@@ -30,6 +34,24 @@ interface Props {
 }
 
 defineProps<Props>();
+
+const getTagClass = (tag: string): string => {
+	const normalizedTag = tag.toLowerCase();
+	switch (normalizedTag) {
+		case 'active':
+			return 'active';
+		case 'maintained':
+			return 'maintained';
+		case 'legacy':
+			return 'legacy';
+		case 'hobby':
+			return 'hobby';
+		case 'open-source':
+			return 'opensource';
+		default:
+			return 'default';
+	}
+};
 </script>
 
 <style scoped>
@@ -72,16 +94,57 @@ defineProps<Props>();
 	transform: scale(1.05);
 }
 
-.featured-badge {
+.tags-container {
 	position: absolute;
 	top: 0.75rem;
 	right: 0.75rem;
-	background: #2c3e50;
-	color: white;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	max-width: 60%;
+	justify-content: flex-end;
+}
+
+.tag {
 	padding: 0.4rem 0.8rem;
 	border-radius: 4px;
-	font-size: 0.8rem;
+	font-size: 0.75rem;
 	font-weight: 600;
+	text-transform: capitalize;
+	backdrop-filter: blur(10px);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Specific tag colors */
+.tag-active {
+	background: rgba(34, 197, 94, 0.9);
+	color: white;
+}
+
+.tag-maintained {
+	background: rgba(234, 179, 8, 0.9);
+	color: white;
+}
+
+.tag-legacy {
+	background: rgba(55, 65, 81, 0.9);
+	color: white;
+}
+
+.tag-hobby {
+	background: rgba(59, 130, 246, 0.9);
+	color: white;
+}
+
+.tag-opensource {
+	background: rgba(6, 182, 212, 0.9);
+	color: white;
+}
+
+.tag-default {
+	background: rgba(156, 163, 175, 0.9);
+	color: white;
 }
 
 .project-content {

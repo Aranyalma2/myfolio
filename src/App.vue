@@ -8,6 +8,7 @@
 				<div class="nav-links">
 					<router-link to="/" class="nav-link"> Home </router-link>
 					<router-link to="/projects" class="nav-link"> Projects </router-link>
+					<ThemeToggle />
 				</div>
 			</div>
 		</nav>
@@ -34,10 +35,24 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+/*global document, localStorage*/
+
+import { computed, onMounted } from 'vue';
 import { basics, socialLinks } from '@/data/basics';
+import ThemeToggle from '@/components/ThemeToggle.vue';
 
 const currentYear = computed(() => new Date().getFullYear());
+
+// Initialize theme on app mount
+onMounted(() => {
+	// Check for saved theme preference or default to system
+	const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
+
+	if (savedTheme) {
+		document.documentElement.classList.add(savedTheme);
+	}
+	// If no saved theme, CSS media query will handle system preference automatically
+});
 </script>
 
 <style src="./assets/css/colors.css"></style>

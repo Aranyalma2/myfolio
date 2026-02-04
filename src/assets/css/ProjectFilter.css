@@ -1,8 +1,8 @@
 .project-filter {
-	background: white;
+	background: var(--color-bg-primary);
 	padding: 1.5rem;
 	border-radius: 8px;
-	border: 1px solid #e2e8f0;
+	border: 1px solid var(--color-border-light);
 }
 
 .search-box {
@@ -18,7 +18,7 @@
 .search-input {
 	width: 100%;
 	padding: 0.8rem 2.5rem 0.8rem 0.8rem;
-	border: 2px solid #e2e8f0;
+	border: 2px solid var(--color-border-light);
 	border-radius: 4px;
 	font-size: 0.95rem;
 	transition: border-color 0.3s ease;
@@ -26,13 +26,13 @@
 
 .search-input:focus {
 	outline: none;
-	border-color: #2c3e50;
+	border-color: var(--color-primary);
 }
 
 .clear-search-btn {
 	position: absolute;
 	right: 0.75rem;
-	background: #e2e8f0;
+	background: var(--color-border-light);
 	border: none;
 	width: 22px;
 	height: 22px;
@@ -43,11 +43,11 @@
 	justify-content: center;
 	transition: background 0.3s ease;
 	font-size: 0.85rem;
-	color: #4a5568;
+	color: var(--color-text-secondary);
 }
 
 .clear-search-btn:hover {
-	background: #cbd5e0;
+	background: var(--color-border-medium);
 }
 
 .filter-section {
@@ -63,14 +63,14 @@
 
 .filter-header h3 {
 	font-size: 1.1rem;
-	color: #2d3748;
+	color: var(--color-text-primary);
 	font-weight: 600;
 }
 
 .clear-all-btn {
 	background: transparent;
-	border: 2px solid #e74c3c;
-	color: #e74c3c;
+	border: 2px solid var(--color-accent-danger);
+	color: var(--color-accent-danger);
 	padding: 0.4rem 0.8rem;
 	border-radius: 4px;
 	cursor: pointer;
@@ -80,7 +80,7 @@
 }
 
 .clear-all-btn:hover {
-	background: #e74c3c;
+	background: var(--color-accent-danger);
 	color: white;
 }
 
@@ -92,24 +92,24 @@
 
 .label-btn {
 	padding: 0.6rem 1rem;
-	border: 2px solid #e2e8f0;
-	background: white;
+	border: 2px solid var(--color-border-light);
+	background: var(--color-bg-primary);
 	border-radius: 4px;
 	cursor: pointer;
 	transition: all 0.3s ease;
 	font-size: 0.9rem;
 	font-weight: 500;
-	color: #4a5568;
+	color: var(--color-text-secondary);
 }
 
 .label-btn:hover {
-	border-color: #2c3e50;
-	color: #2c3e50;
+	border-color: var(--color-primary);
+	color: var(--color-primary);
 }
 
 .label-btn.active {
-	background: #2c3e50;
-	border-color: #2c3e50;
+	background: var(--color-primary);
+	border-color: var(--color-primary);
 	color: white;
 }
 

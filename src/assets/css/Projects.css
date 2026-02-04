@@ -3,7 +3,7 @@
 }
 
 .projects-header {
-	background: #2c3e50;
+	background: var(--color-primary);
 	color: white;
 	padding: 2rem 1rem;
 	text-align: center;
@@ -21,14 +21,14 @@
 
 .projects-content {
 	padding: 2rem 1rem;
-	background: #f8f9fa;
+	background: var(--color-bg-secondary);
 	min-height: 60vh;
 }
 
 .results-info {
 	margin: 1.5rem 0 1rem;
 	text-align: center;
-	color: #718096;
+	color: var(--color-text-muted);
 	font-size: 0.95rem;
 }
 
@@ -42,7 +42,7 @@
 .no-results {
 	text-align: center;
 	padding: 3rem 1rem;
-	background: white;
+	background: var(--color-bg-primary);
 	border-radius: 8px;
 	margin-top: 1.5rem;
 }
@@ -50,17 +50,17 @@
 .no-results h3 {
 	font-size: 1.5rem;
 	margin-bottom: 0.75rem;
-	color: #2d3748;
+	color: var(--color-text-primary);
 }
 
 .no-results p {
 	font-size: 1.05rem;
-	color: #718096;
+	color: var(--color-text-muted);
 	margin-bottom: 1.5rem;
 }
 
 .btn-clear {
-	background: #2c3e50;
+	background: var(--color-primary);
 	color: white;
 	border: none;
 	padding: 0.8rem 1.5rem;
@@ -72,7 +72,7 @@
 }
 
 .btn-clear:hover {
-	background: #1a252f;
+	background: var(--color-primary-dark);
 }
 
 @media (max-width: 768px) {

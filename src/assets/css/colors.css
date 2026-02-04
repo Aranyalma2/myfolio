@@ -1,0 +1,47 @@
+/* 
+ * Color Theme Variables
+ * 
+ * Customize your portfolio colors by editing the values below.
+ * All colors across the site will automatically update.
+ */
+
+:root {
+	/* Primary Colors */
+	--color-primary: #790e43; /* Main brand color (dark blue) */
+	--color-primary-dark: #1a252f; /* Darker shade for hover states */
+
+	/* Background Colors */
+	--color-bg-primary: #ffffff; /* Main background (white) */
+	--color-bg-secondary: #f8f9fa; /* Alternate section background (light gray) */
+	--color-bg-tertiary: #f7fafc; /* Content background (very light gray) */
+
+	/* Text Colors */
+	--color-text-primary: #2d3748; /* Main text color (dark gray) */
+	--color-text-secondary: #4a5568; /* Secondary text (medium gray) */
+	--color-text-muted: #718096; /* Muted text (light gray) */
+	--color-text-light: rgba(255, 255, 255, 0.95); /* Light text on dark backgrounds */
+
+	/* Border Colors */
+	--color-border-light: #e2e8f0; /* Light borders */
+	--color-border-medium: #cbd5e0; /* Medium borders */
+
+	/* Tag Colors */
+	--color-tag-active: rgba(34, 197, 94, 0.9); /* Green - Active projects */
+	--color-tag-maintained: rgba(234, 179, 8, 0.9); /* Yellow - Maintained projects */
+	--color-tag-legacy: rgba(55, 65, 81, 0.9); /* Dark grey - Legacy projects */
+	--color-tag-hobby: rgba(59, 130, 246, 0.9); /* Blue - Hobby projects */
+	--color-tag-opensource: rgba(6, 182, 212, 0.9); /* Cyan - Open source projects */
+	--color-tag-default: rgba(156, 163, 175, 0.9); /* Grey - Default tag */
+
+	/* Accent Colors */
+	--color-accent-danger: #e74c3c; /* Red - for clear/delete actions */
+
+	/* Shadow Colors */
+	--shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+	--shadow-md: 0 2px 8px rgba(0, 0, 0, 0.1);
+	--shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.1);
+	--shadow-xl: 0 8px 20px rgba(0, 0, 0, 0.15);
+	--shadow-profile: 0 4px 12px rgba(0, 0, 0, 0.3);
+	--shadow-button: 0 4px 12px rgba(44, 62, 80, 0.3);
+	--shadow-button-lg: 0 6px 16px rgba(44, 62, 80, 0.4);
+}

@@ -424,6 +424,65 @@ All TypeScript type definitions are located in `src/types/index.ts`. These ensur
 
 **Note:** You generally don't need to modify the type definitions unless you want to add new fields to existing objects.
 
+## Colors and Theming
+
+All site colors are centralized in `src/assets/css/colors.css` using CSS custom properties (variables). This makes it easy to customize the entire color scheme by editing a single file.
+
+### Available Color Variables
+
+**Primary Colors:**
+- `--color-primary`: Main brand color (#2c3e50) - used for headers, buttons, links
+- `--color-primary-dark`: Darker variant (#1a252f) - used for hover states
+
+**Background Colors:**
+- `--color-bg-primary`: Main background (white)
+- `--color-bg-secondary`: Secondary background (#f8f9fa)
+- `--color-bg-tertiary`: Tertiary background (#f7fafc)
+
+**Text Colors:**
+- `--color-text-primary`: Main text (#2d3748)
+- `--color-text-secondary`: Secondary text (#4a5568)
+- `--color-text-muted`: Muted text (#718096)
+- `--color-text-light`: Light text (rgba(255,255,255,0.9))
+
+**Border Colors:**
+- `--color-border-light`: Light borders (#e2e8f0)
+- `--color-border-medium`: Medium borders (#cbd5e0)
+
+**Tag Colors:**
+- `--color-tag-active`: Active project tag (#10b981)
+- `--color-tag-maintained`: Maintained project tag (#3b82f6)
+- `--color-tag-legacy`: Legacy project tag (#f59e0b)
+- `--color-tag-hobby`: Hobby project tag (#8b5cf6)
+- `--color-tag-opensource`: Open source tag (#ec4899)
+- `--color-tag-default`: Default tag (#6b7280)
+
+**Shadows:**
+- `--shadow-sm` through `--shadow-2xl`: Predefined shadow values
+- `--shadow-button` and `--shadow-button-lg`: Button-specific shadows
+
+**Accent Colors:**
+- `--color-accent-danger`: Danger/error color (#dc2626)
+
+### Customizing Colors
+
+To customize the color scheme, edit `src/assets/css/colors.css`:
+
+```css
+:root {
+	/* Change the primary color */
+	--color-primary: #your-color-here;
+	
+	/* Change backgrounds */
+	--color-bg-primary: #your-bg-color;
+	
+	/* Change text colors */
+	--color-text-primary: #your-text-color;
+}
+```
+
+All components will automatically use the new colors since they reference these variables throughout the CSS files.
+
 ## Tips and Best Practices
 
 1. **Consistent Formatting:** Keep your descriptions consistently formatted across all sections.

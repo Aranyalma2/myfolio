@@ -1,8 +1,8 @@
 .project-card {
-	background: white;
+	background: var(--color-bg-primary);
 	border-radius: 8px;
 	overflow: hidden;
-	border: 1px solid #e2e8f0;
+	border: 1px solid var(--color-border-light);
 	transition:
 		box-shadow 0.3s ease,
 		transform 0.3s ease;
@@ -15,7 +15,7 @@
 
 .project-card:hover {
 	transform: translateY(-4px);
-	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+	box-shadow: var(--shadow-xl);
 }
 
 .project-image {
@@ -23,7 +23,7 @@
 	width: 100%;
 	height: 200px;
 	overflow: hidden;
-	background: #2c3e50;
+	background: var(--color-primary);
 }
 
 .project-image img {
@@ -61,32 +61,32 @@
 
 /* Specific tag colors */
 .tag-active {
-	background: rgba(34, 197, 94, 0.9);
+	background: var(--color-tag-active);
 	color: white;
 }
 
 .tag-maintained {
-	background: rgba(234, 179, 8, 0.9);
+	background: var(--color-tag-maintained);
 	color: white;
 }
 
 .tag-legacy {
-	background: rgba(55, 65, 81, 0.9);
+	background: var(--color-tag-legacy);
 	color: white;
 }
 
 .tag-hobby {
-	background: rgba(59, 130, 246, 0.9);
+	background: var(--color-tag-hobby);
 	color: white;
 }
 
 .tag-opensource {
-	background: rgba(6, 182, 212, 0.9);
+	background: var(--color-tag-opensource);
 	color: white;
 }
 
 .tag-default {
-	background: rgba(156, 163, 175, 0.9);
+	background: var(--color-tag-default);
 	color: white;
 }
 
@@ -100,12 +100,12 @@
 .project-content h3 {
 	font-size: 1.3rem;
 	margin-bottom: 0.6rem;
-	color: #2d3748;
+	color: var(--color-text-primary);
 	line-height: 1.3;
 }
 
 .short-description {
-	color: #4a5568;
+	color: var(--color-text-secondary);
 	line-height: 1.5;
 	margin-bottom: 0.75rem;
 	flex: 1;
@@ -120,8 +120,8 @@
 }
 
 .label {
-	background: #e2e8f0;
-	color: #4a5568;
+	background: var(--color-border-light);
+	color: var(--color-text-secondary);
 	padding: 0.3rem 0.7rem;
 	border-radius: 4px;
 	font-size: 0.8rem;
@@ -129,8 +129,8 @@
 }
 
 .label-more {
-	background: #cbd5e0;
-	color: #4a5568;
+	background: var(--color-border-medium);
+	color: var(--color-text-secondary);
 	padding: 0.3rem 0.7rem;
 	border-radius: 4px;
 	font-size: 0.8rem;
@@ -144,7 +144,7 @@
 }
 
 .view-more {
-	color: #2c3e50;
+	color: var(--color-primary);
 	font-weight: 600;
 	font-size: 0.9rem;
 	transition: transform 0.3s ease;

@@ -40,4 +40,5 @@ import { basics, socialLinks } from '@/data/basics';
 const currentYear = computed(() => new Date().getFullYear());
 </script>
 
+<style src="./assets/css/colors.css"></style>
 <style src="./assets/css/App.css"></style>

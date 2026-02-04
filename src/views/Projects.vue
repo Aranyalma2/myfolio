@@ -61,4 +61,4 @@ const clearAllFilters = (): void => {
 };
 </script>
 
-<style src="./Projects.css" scoped></style>
+<style src="../assets/css/Projects.css" scoped></style>

@@ -18,15 +18,8 @@ export const projects: Project[] = [
         <li>Multi-tenant architecture supporting 50+ clients</li>
       </ul>
     `,
-		bannerImage: '/src/assets/projects/picture.webp',
-		images: [
-			'/src/assets/projects/picture.webp',
-			'/src/assets/projects/picture.webp',
-			'/src/assets/projects/picture.webp',
-			'/src/assets/projects/picture.webp',
-			'/src/assets/projects/picture.webp',
-			'/src/assets/projects/picture.webp'
-		],
+		bannerImage: '/projects/picture.webp',
+		images: ['/projects/picture.webp', '/projects/picture.webp', '/projects/picture.webp', '/projects/picture.webp', '/projects/picture.webp', '/projects/picture.webp'],
 		labels: ['NestJS', 'Vue.js', 'MongoDB', 'Azure AKS', 'IoT', 'TypeScript', 'WebSocket'],
 		github: 'https://github.com/',
 		demo: null,
@@ -50,8 +43,8 @@ export const projects: Project[] = [
         <li>Temperature range: -40°C to +85°C</li>
       </ul>
     `,
-		bannerImage: '/src/assets/projects/picture.webp',
-		images: ['/src/assets/projects/picture.webp', '/src/assets/projects/picture.webp'],
+		bannerImage: '/projects/picture.webp',
+		images: ['/projects/picture.webp', '/projects/picture.webp'],
 		labels: ['ESP32', 'C++', 'ESP-IDF', 'KiCad', 'Embedded', 'IoT', 'Modbus'],
 		github: 'https://github.com/',
 		demo: null,
@@ -75,8 +68,8 @@ export const projects: Project[] = [
         <li>Multi-site VPN mesh networking</li>
       </ul>
     `,
-		bannerImage: '/src/assets/projects/picture.webp',
-		images: ['/src/assets/projects/picture.webp'],
+		bannerImage: '/projects/picture.webp',
+		images: ['/projects/picture.webp'],
 		labels: ['Next.js', 'NestJS', 'MikroTik', 'Networking', 'PostgreSQL', 'TypeScript', 'API'],
 		github: null,
 		demo: null,
@@ -101,8 +94,8 @@ export const projects: Project[] = [
         <li>Edge computing for data preprocessing</li>
       </ul>
     `,
-		bannerImage: '/src/assets/projects/picture.webp',
-		images: ['/src/assets/projects/picture.webp', '/src/assets/projects/picture.webp'],
+		bannerImage: '/projects/picture.webp',
+		images: ['/projects/picture.webp', '/projects/picture.webp'],
 		labels: ['ESP32', 'LoRa', 'C++', 'MQTT', 'IoT', 'Wireless', 'ESP-NOW'],
 		github: 'https://github.com/',
 		demo: null,
@@ -125,8 +118,8 @@ export const projects: Project[] = [
         <li>Helm charts for package management</li>
       </ul>
     `,
-		bannerImage: '/src/assets/projects/picture.webp',
-		images: ['/src/assets/projects/picture.webp'],
+		bannerImage: '/projects/picture.webp',
+		images: ['/projects/picture.webp'],
 		labels: ['Kubernetes', 'Docker', 'Azure AKS', 'Microservices', 'DevOps', 'Istio'],
 		github: null,
 		demo: null,
@@ -149,8 +142,8 @@ export const projects: Project[] = [
         <li>Real-time task scheduling</li>
       </ul>
     `,
-		bannerImage: '/src/assets/projects/picture.webp',
-		images: ['/src/assets/projects/picture.webp', '/src/assets/projects/picture.webp'],
+		bannerImage: '/projects/picture.webp',
+		images: ['/projects/picture.webp', '/projects/picture.webp'],
 		labels: ['RISC-V', 'C', 'Embedded', 'CH32V', 'Bare-metal', 'Firmware'],
 		github: 'https://github.com/',
 		demo: null,

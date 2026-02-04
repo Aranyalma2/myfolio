@@ -5,7 +5,7 @@
 				<div class="hero-left">
 					<div class="hero-left-top">
 						<div class="profile-image-wrapper">
-							<img :src="profileImage" :alt="basics.name" class="profile-image" />
+							<img src="/profile.webp" :alt="basics.name" class="profile-image" />
 						</div>
 						<div class="hero-text">
 							<h1 class="hero-title">
@@ -145,47 +145,6 @@ import { experience } from '@/data/experience';
 import { skills } from '@/data/skills';
 import { certifications } from '@/data/certifications';
 import { interests } from '@/data/interests';
-
-const profileImage = '/src/assets/profile.webp';
 </script>
 
-<style src="./Home.css" scoped></style>
-.home { width: 100%; } .hero { min-height: 20vh; display: flex; align-items: center; justify-content: center; background: #2c3e50; color: white; padding: 3rem 2rem; } .hero-content
-{ max-width: 1200px; width: 100%; display: grid; grid-template-columns: 400px 1fr; gap: 4rem; align-items: start; } .hero-left { display: flex; flex-direction: column; gap: 1.5rem;
-} .hero-left-top { display: flex; align-items: center; gap: 1.5rem; } .hero-text { text-align: left; } .hero-right { text-align: left; padding-top: 1rem; } .about-title {
-font-size: 2rem; margin-bottom: 1.5rem; color: white; border-bottom: 3px solid white; padding-bottom: 0.5rem; } .profile-image-wrapper { flex-shrink: 0; } .profile-image { width:
-150px; height: 150px; border-radius: 50%; object-fit: cover; border: 4px solid white; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); } .hero-title { font-size: 2.5rem; margin-bottom:
-0.3rem; font-weight: 700; line-height: 1.2; } .headline { font-size: 1.2rem; margin-bottom: 0.3rem; opacity: 0.9; } .location { font-size: 1rem; opacity: 0.8; margin-bottom:
-1.5rem; } .contact-links { display: flex; gap: 0.75rem; justify-content: flex-start; flex-wrap: wrap; } .contact-link { color: white; text-decoration: none; padding: 0.6rem 1.2rem;
-border: 2px solid white; border-radius: 4px; transition: all 0.3s ease; font-weight: 500; font-size: 0.9rem; } .contact-link:hover { background: white; color: #2c3e50; }
-.hero-right .summary-content { font-size: 1.05rem; line-height: 1.7; color: rgba(255, 255, 255, 0.95); } .hero-right .summary-content :deep(p) { margin-bottom: 1rem; } .hero-right
-.summary-content :deep(strong) { color: white; font-weight: 600; } .summary, .education, .experience, .skills, .certifications, .interests, .cta { padding: 3rem 1rem; } .education
-{ background: #f8f9fa; } .experience { background: white; } .skills { background: #f8f9fa; } .certifications { background: white; } .interests { background: #f8f9fa; } .cta {
-background: white; text-align: center; } .container { max-width: 1000px; margin: 0 auto; } .summary h2, .education h2, .experience h2, .skills h2, .certifications h2, .interests
-h2, .cta h2 { font-size: 2rem; margin-bottom: 1.5rem; color: #2c3e50; border-bottom: 3px solid #2c3e50; padding-bottom: 0.5rem; } .summary-content { max-width: 900px; margin: 0
-auto; font-size: 1.05rem; line-height: 1.7; color: #4a5568; } .summary-content :deep(p) { margin-bottom: 1rem; } .summary-content :deep(strong) { color: #2c3e50; font-weight: 600;
-} /* Timeline Styles */ .timeline { position: relative; padding-left: 2rem; } .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px;
-background: #cbd5e0; } .timeline-item { position: relative; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid #e2e8f0; } .timeline-item:last-child {
-border-bottom: none; margin-bottom: 0; padding-bottom: 0; } .timeline-marker { position: absolute; left: -2.3rem; top: 0.25rem; width: 12px; height: 12px; border-radius: 50%;
-background: #2c3e50; border: 3px solid white; box-shadow: 0 0 0 2px #2c3e50; } .timeline-content { padding-left: 1rem; } .timeline-header { display: flex; justify-content:
-space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.5rem; } .timeline-content h3 { font-size: 1.3rem; color: #2c3e50; font-weight: 600; }
-.timeline-content h4 { font-size: 1.1rem; color: #4a5568; font-weight: 500; margin-bottom: 0.3rem; } .timeline-period { font-size: 0.95rem; color: #718096; font-weight: 500; }
-.timeline-area, .timeline-location { color: #718096; font-size: 0.95rem; margin-bottom: 0.5rem; } .timeline-description { color: #4a5568; line-height: 1.6; margin-top: 0.75rem; }
-.timeline-description :deep(p) { margin-bottom: 0.75rem; } .timeline-description :deep(strong) { color: #2c3e50; font-weight: 600; } /* Skills Grid */ .skills-grid { display: grid;
-grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; } .skill-card { background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #e2e8f0;
-transition: box-shadow 0.3s ease; } .skill-card:hover { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); } .skill-card h3 { font-size: 1.2rem; color: #2c3e50; margin-bottom: 1rem;
-font-weight: 600; } .keywords { display: flex; flex-wrap: wrap; gap: 0.5rem; } .keyword { background: #e2e8f0; padding: 0.4rem 0.8rem; border-radius: 4px; font-size: 0.85rem;
-color: #4a5568; font-weight: 500; } /* Certifications Grid */ .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; } .cert-card {
-background: #f8f9fa; padding: 1.5rem; border-radius: 8px; border: 1px solid #e2e8f0; transition: box-shadow 0.3s ease; } .cert-card:hover { box-shadow: 0 4px 12px rgba(0, 0, 0,
-0.1); } .cert-card h3 { font-size: 1.15rem; color: #2c3e50; margin-bottom: 0.75rem; font-weight: 600; line-height: 1.3; } .cert-issuer { color: #4a5568; font-size: 0.95rem;
-margin-bottom: 0.5rem; font-weight: 500; } .cert-date { color: #718096; font-size: 0.9rem; } .cert-description { color: #4a5568; font-size: 0.95rem; margin-top: 0.75rem;
-line-height: 1.6; } /* Interests Grid */ .interests-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; } .interest-card { background:
-white; padding: 1.5rem; border-radius: 8px; border: 1px solid #e2e8f0; transition: box-shadow 0.3s ease; } .interest-card:hover { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); }
-.interest-card h3 { font-size: 1.2rem; color: #2c3e50; margin-bottom: 1rem; font-weight: 600; } .interest-keywords { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.interest-keyword { background: #e2e8f0; padding: 0.4rem 0.8rem; border-radius: 4px; font-size: 0.85rem; color: #4a5568; font-weight: 500; } /* CTA Section */ .cta-subtitle {
-font-size: 1.1rem; color: #718096; margin-bottom: 1.5rem; } .btn-primary { display: inline-block; background: #2c3e50; color: white; padding: 0.9rem 2rem; border-radius: 4px;
-text-decoration: none; font-size: 1.1rem; font-weight: 600; transition: background 0.3s ease; } .btn-primary:hover { background: #1a252f; } @media (max-width: 768px) { .hero {
-padding: 2rem 1rem; } .hero-content { grid-template-columns: 1fr; gap: 2rem; } .hero-left-top { flex-direction: column; align-items: center; text-align: center; } .hero-text {
-text-align: center; } .hero-right { text-align: left; } .hero-title { font-size: 2rem; } .headline { font-size: 1.1rem; } .about-title { font-size: 1.5rem; } .contact-links {
-justify-content: center; } .skills-grid, .cert-grid, .interests-grid { grid-template-columns: 1fr; } .timeline-header { flex-direction: column; align-items: flex-start; } .summary,
-.education, .experience, .skills, .certifications, .interests, .cta { padding: 2rem 1rem; } }
+<style src="../assets/css/Home.css" scoped></style>

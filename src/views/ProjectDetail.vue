@@ -161,4 +161,4 @@ if (typeof window !== 'undefined') {
 }
 </script>
 
-<style src="./ProjectDetail.css" scoped></style>
+<style src="../assets/css/ProjectDetail.css" scoped></style>
